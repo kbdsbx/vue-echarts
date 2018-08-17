@@ -1,5 +1,5 @@
 {
-  "name": "vue-echarts",
+  "name": "vue-echarts-i",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "echarts": "^4.1.0",
     "vue": "^2.5.16"
   },
   "devDependencies": {
@@ -16,6 +17,12 @@
     "@vue/cli-service": "^3.0.0-rc.10",
     "vue-template-compiler": "^2.5.16"
   },
+  "keywords" : [
+    "vue",
+    "vue-echarts",
+    "echarts",
+    "vue component"
+  ],
   "eslintConfig": {
     "root": true,
     "env": {
@@ -39,5 +46,7 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "author": "KBDSBX",
+  "license": "ISC"
 }
