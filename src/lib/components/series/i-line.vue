@@ -1,4 +1,7 @@
 <template>
+<div class="i-echarts-options">
+    <slot></slot>
+</div>
 </template>
 
 <script>
@@ -68,7 +71,6 @@ export default {
             default : false,
         },
         showAllSymbol : {
-            type : Object,
             default : () => 'auto' 
         },
         hoverAnimation : {
@@ -96,7 +98,6 @@ export default {
             default : true,
         },
         step : {
-            type : Object,
             default : () => false,
         },
         label : {
@@ -120,7 +121,6 @@ export default {
             default : () => undefined,
         },
         smooth : {
-            type : Object,
             default : () => false,
         },
         smoothMonotone : {
@@ -192,11 +192,9 @@ export default {
             default : 'linear',
         },
         animationDelay : {
-            type : Object,
             default : () => 0,
         },
         animationDurationUpdate : {
-            type : Object,
             default : () => 300
         },
         animationEasingUpdate : {
@@ -204,7 +202,6 @@ export default {
             default : "cubicOut",
         },
         animationDelayUpdate : {
-            type : Object,
             default : () => 0
         },
         tooltip : {

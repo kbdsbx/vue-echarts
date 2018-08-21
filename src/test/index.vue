@@ -2,31 +2,245 @@
 <div class="chart-area">
     <button v-on:click="random">Random</button>
     <button v-on:click="rename">Rename</button>
-    <i-echarts>
-        <i-bar
-            :name="barName"
-            :data="barData"
+    <div id="demo-1" class="demo">
+        <i-echarts
+            :color="['rgba(116,180,255,0.4)', '#fff', '#95c166', '#ffc35f']"
         >
+            <i-grid
+                :bottom="`2%`"
+                :containLabel="true"
+                :left="0"
+                :right="0"
+                :top="`80px`"
+            >
+            </i-grid>
+            <i-legend
+                :data="['日出账收入', '月环比']"
+                :textStyle="{ color: '#fff' }"
+            >
+            </i-legend>
+            <i-bar
+                :data="[434, -50.88, 286.85, 228.87, 205.24, 152.02, 482.67, 185.62, 439.45, 82.24, 52.96, 95.34, 133.36]"
+                :barWidth="`14px`"
+                :itemStyle="{ normal : { color : 'rgba(116,180,255,0.4)' } }"
+                :markPoint="{
+                    symbol:'circle',
+                    symbolSize:7,
+                    symbolOffset: [0, '100%'],
+                    label:{show:false},
+                    data: [
+                        {
+                            coord:[6, -56],
+                            itemStyle:{
+                                color: '#95c166'
+                            }
+                        },{
+                            coord:[8, -56],
+                            itemStyle:{
+                                color: '#95c166'
+                            }
+                        },{
+                            coord:[0, -56],
+                            itemStyle:{
+                                color: '#95c166'
+                            }
+                        },{
+                            coord:[9, -56],
+                            itemStyle:{
+                                color: '#ffc35f'
+                            }
+                        },{
+                            coord:[10, -56],
+                            itemStyle:{
+                                color: '#ffc35f'
+                            }
+                        },{
+                            coord:[1, -56],
+                            itemStyle:{
+                                color: '#ffc35f'
+                            }
+                        }
+                    ]
+                }"
+                :name="`日出账收入`"
+                :yAxisIndex="0"
+            >
+            </i-bar>
+            <i-line
+                :name="`月环比`"
+                :data="[-5.41, 1.01, 1.69, -4.49, -3.75, -0.55, -6.47, -1.66, -6.26, -3.56, -3.14, -4.45, -4.76]"
+                :itemStyle="{ borderColor : '#fff', borderWidth : '1', color : params => ['#ffc35f', '#95c166', '#95c166', '#fff', '#fff', '#95c166', '#ffc35f', '#fff', '#ffc35f', '#fff', '#fff', '#fff', '#fff'][params.dataIndex] }"
+                :lineStyle="{ normal : { color : '#fff' } }"
+                :markLine="{
+                    silent:true,
+                    symbolSize:0,
+                    label:{
+                        show:false
+                    },
+                    lineStyle:{
+                        color:'#fff'
+                    },
+                    data: [ {
+                        yAxis: -3.215384615384615
+                    } ]
+                }"
+                :symbol="`circle`"
+                :symbolSize="7"
+                :yAxisIndex="1"
+            >
+            </i-line>
             <i-tooltip
                 :axisPointer="{ type : 'shadow' }"
-            ></i-tooltip>
-        </i-bar>
-        <i-bar
-            :name="barName"
-            :data="barData"
+                :trigger="'axis'"
+            >
+            </i-tooltip>
+            <i-x-axis
+                :data="['武林', '西湖', '江干', '拱墅', '下沙', '滨江', '萧山', '富阳', '余杭', '建德', '淳安', '桐庐', '临安']"
+                :axisLabel="{ color: '#fff', formatter : ( value ) => value.split('').join('\n'), margin : 14 }"
+                :axisLine="{ onZero : false, show : false }"
+                :axisTick="{ show : false }"
+                :splitLine="{ show : false }"
+                :type="`category`"
+            ></i-x-axis>
+            <i-y-axis
+                :type="`value`"
+                :axisTick="{ show : false }"
+                :name="`万`"
+                :axisLine="{ show : false }"
+                :axisLabel="{ color: '#fff', showMinLabel : true, showMaxLabel : true }"
+                :nameTextStyle="{ color: '#fff', padding: [ 0, 25, 0, 0 ]}"
+                :splitLine="{ show : false }"
+                :min="value => Math.floor(value.min-Math.abs(value.min*0.1))"
+                :max="value => value.max < 0 ? Math.ceil(value.max+Math.abs(value.max*0.1)) : Math.ceil(value.max+(value.max*0.1))"
+            ></i-y-axis>
+            <i-y-axis
+                :type="`value`"
+                :axisTick="{ show : false }"
+                :name="`%`"
+                :axisLine="{ show : false }"
+                :axisLabel="{ color: '#fff', showMinLabel : true, showMaxLabel : true }"
+                :nameTextStyle="{ color: '#fff', padding: [ 0, 0, 0, 25 ]}"
+                :splitLine="{ show : false }"
+                :min="value => (value.min-Math.abs(value.min)*0.1).toFixed(2)"
+                :max="value => value.max < 0 ? (value.max+Math.abs(value.max*0.1)).toFixed(2) : (value.max+(value.max*0.1)).toFixed(2)"
+            ></i-y-axis>
+        </i-echarts>
+    </div>
+
+
+    <div id="demo-2" class="demo">
+        <i-echarts
+            :color="['rgba(116,180,255,0.4)', '#FFF']"
         >
+            <i-grid
+                :bottom="`2%`"
+                :containLabel="true"
+                :left="0"
+                :right="0"
+                :top="`80px`"
+            >
+            </i-grid>
+            <i-legend
+                :data="['宽带日受理', '宽带日竣工']"
+                :textStyle="{ color: '#fff' }"
+            >
+            </i-legend>
+            <i-bar
+                :data="['79', '97', '107', '68', '62', '61', '244', '202', '207', '71', '38', '58', '109']"
+                :itemStyle="{ normal : { color : 'rgba(116,180,255,0.4)' } }"
+                :barWidth="`10px`"
+                :name="`宽带日受理`"
+            >
+            </i-bar>
+            <i-bar
+                :data="['178', '243', '201', '137', '163', '109', '503', '207', '533', '96', '58', '110', '151']"
+                :itemStyle="{ normal : { color : '#FFF' } }"
+                :barWidth="`10px`"
+                :name="`宽带日竣工`"
+            >
+            </i-bar>
             <i-tooltip
-                :padding="0"
-                :border="0"
                 :axisPointer="{ type : 'shadow' }"
-                :formatter="( a, b, c, d ) => { return `<span style='background-color: white; color: #999; padding: 5px;'>${a.name} : ${a.value}</span>`; }"
-            ></i-tooltip>
-        </i-bar>
-        <i-x-axis
-            :data="barxAxis"
-        ></i-x-axis>
-        <i-y-axis></i-y-axis>
-    </i-echarts>
+                :trigger="'axis'"
+            >
+            </i-tooltip>
+            <i-x-axis
+                :data="['武林', '西湖', '江干', '拱墅', '下沙', '滨江', '萧山', '富阳', '余杭', '建德', '淳安', '桐庐', '临安']"
+                :axisLabel="{ color: '#fff', formatter : ( value ) => value.split('').join('\n') }"
+                :axisLine="{ show : false }"
+                :axisTick="{ show : false }"
+                :splitLine="{ show : false }"
+                :type="`category`"
+            ></i-x-axis>
+            <i-y-axis
+                :type="`value`"
+                :axisTick="{ show : false }"
+                :name="`户/户`"
+                :axisLine="{ show : false }"
+                :axisLabel="{ color: '#fff' }"
+                :nameTextStyle="{ color: '#fff', padding: [ 0, 25, 0, 0 ]}"
+                :splitLine="{ show : false }"
+            ></i-y-axis>
+        </i-echarts>
+    </div>
+
+    <div id="demo-3" class="demo">
+        <i-echarts
+            :color="['rgba(116,180,255,0.4)', '#FFF']"
+        >
+            <i-grid
+                :bottom="`2%`"
+                :containLabel="true"
+                :left="0"
+                :right="0"
+                :top="`80px`"
+            >
+            </i-grid>
+            <i-legend
+                :data="['宽带日受理', '宽带日竣工']"
+                :textStyle="{ color: '#fff' }"
+            >
+            </i-legend>
+            <i-bar
+                :data="['79', '97', '107', '68', '62', '61', '244', '202', '207', '71', '38', '58', '109']"
+                :itemStyle="{ normal : { color : 'rgba(116,180,255,0.4)' } }"
+                :barWidth="stack_width"
+                :name="`宽带日受理`"
+                :stack="`宽带`"
+            >
+            </i-bar>
+            <i-bar
+                :data="['178', '243', '201', '137', '163', '109', '503', '207', '533', '96', '58', '110', '151']"
+                :itemStyle="{ normal : { color : '#FFF' } }"
+                :barWidth="stack_width"
+                :name="`宽带日竣工`"
+                :stack="stack_name"
+            >
+            </i-bar>
+            <i-tooltip
+                :axisPointer="{ type : 'shadow' }"
+                :trigger="'axis'"
+            >
+            </i-tooltip>
+            <i-x-axis
+                :data="['武林', '西湖', '江干', '拱墅', '下沙', '滨江', '萧山', '富阳', '余杭', '建德', '淳安', '桐庐', '临安']"
+                :axisLabel="{ color: '#fff', formatter : ( value ) => value.split('').join('\n') }"
+                :axisLine="{ show : false }"
+                :axisTick="{ show : false }"
+                :splitLine="{ show : false }"
+                :type="`category`"
+            ></i-x-axis>
+            <i-y-axis
+                :type="`value`"
+                :axisTick="{ show : false }"
+                :name="`户/户`"
+                :axisLine="{ show : false }"
+                :axisLabel="{ color: '#fff' }"
+                :nameTextStyle="{ color: '#fff', padding: [ 0, 25, 0, 0 ]}"
+                :splitLine="{ show : false }"
+            ></i-y-axis>
+        </i-echarts>
+    </div>
 </div>
 </template>
 
@@ -34,24 +248,18 @@
 export default {
     data () {
         return {
-            barData : [5, 20, 36, 10, 10, 20],
-            barName : '销量',
-            barxAxis : ['衬衫','羊毛衫','雪纺衫','裤子','高跟鞋','袜子'],
+            stack_name : "宽带",
+            stack_width : "16px",
         }
     },
     components : {
     },
     methods : {
         random () {
-            var temp = [];
-            for( var i = 0; i < 6; i++ ) {
-                var t = Math.floor( Math.random() * 50 );
-                temp.push( t );
-            }
-            this.barData = temp;
         },
         rename () {
-            this.barName = '' + ( Math.random() * 100 );
+            this.stack_name = ( this.stack_name == "宽带" ? "非宽带" : "宽带" );
+            this.stack_width = ( this.stack_name == "宽带" ? "16px" : "10px" );
         }
     }
 }
@@ -60,8 +268,13 @@ export default {
 <style>
 
 .chart-area {
-    width: 300px;
-    height: 400px;
+}
+
+.demo {
+    background-color: #0c1a2b;
+    width: 460px;
+    height: 280px;
+    margin-bottom: 15px;
 }
 
 </style>

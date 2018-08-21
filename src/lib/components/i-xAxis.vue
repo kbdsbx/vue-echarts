@@ -51,7 +51,7 @@ export default {
         },
         nameTextStyle : {
             type : Object,
-            default : () => undefined,
+            default : () => ( {} ),
         },
         nameGap : {
             type : Number,
@@ -70,12 +70,10 @@ export default {
             default : true,
         },
         min : {
-            type : Object,
-            default : () => null,
+            default : null,
         },
         max : {
-            type : Object,
-            default : () => null,
+            default : null,
         },
         scale : {
             type : Boolean,
@@ -111,7 +109,7 @@ export default {
         },
         axisLine : {
             type : Object,
-            default : () => ({}),
+            default : () => ( {} ),
         },
         axisTick : {
             type : Object,
@@ -123,19 +121,19 @@ export default {
         },
         splitLine : {
             type : Object,
-            default : () => undefined,
+            default : () => ( {} ),
         },
         splitArea : {
             type : Object,
-            default : () => undefined,
+            default : () => ( {} ),
         },
         data : {
             type : Array,
-            default : () => undefined,
+            default : () => [],
         },
         axisPointer : {
             type : Object,
-            default : () => undefined,
+            default : () => ( {} ),
         },
         zlevel : {
             type : Number,

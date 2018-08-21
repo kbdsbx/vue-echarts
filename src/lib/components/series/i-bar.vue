@@ -48,7 +48,7 @@ export default {
         },
         label : {
             type : Object,
-            default : () => undefined
+            default : () => undefined,
         },
         itemStyle : {
             type : Object,
@@ -67,7 +67,6 @@ export default {
             default : 'pointer',
         },
         barWidth : {
-            type : Object,
             default : () => undefined,
         },
         barMaxWidth : {

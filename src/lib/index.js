@@ -6,6 +6,7 @@ import ixAxis from './components/i-xAxis.vue'
 import iyAxis from './components/i-yAxis.vue'
 import iGrid from './components/i-grid.vue'
 import iTooltip from './components/i-tooltip.vue'
+import iLegend from './components/i-legend.vue'
 
 let components = [
     iEcharts,
@@ -15,10 +16,10 @@ let components = [
     iyAxis,
     iGrid,
     iTooltip,
+    iLegend,
 ];
 
 let VueEcharts = {
-
 }
 
 VueEcharts.install = Vue => {

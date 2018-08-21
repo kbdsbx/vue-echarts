@@ -20,12 +20,12 @@ export default {
             default: () => undefined,
         },
         backgroundColor : {
-            type : Object,
-            default : () => undefined,
+            type : String,
+            default : undefined,
         },
         textStyle : {
             type : Object,
-            default : () => undefined,
+            default : () => ( {} ),
         },
         animation : {
             type : Boolean,
@@ -103,7 +103,8 @@ export default {
         // 递归遍历节点参数创建图表参数
         updateOptions ( params, parent ) {
             if( [
-                'i-bar'
+                'i-bar',
+                'i-line',
             ].indexOf( params.tag ) !== -1 ) {
                 this.options.series = this.options.series || [];
                 this.options.series.push( { ...params } );
@@ -120,12 +121,8 @@ export default {
 
             if ( [
                 'i-tooltip',
-            ].indexOf( params.tag ) !== -1 ) {
-            }
-
-            if ( [
-                'i-tooltip',
                 'i-grid',
+                'i-legend',
             ].indexOf( params.tag ) !== -1 ) {
                 // 如果非根选项包含tooltip，对tooltip设置空对象
                 if ( params.tag == 'i-tooltip' && parent.tag != 'i-echarts' ) {

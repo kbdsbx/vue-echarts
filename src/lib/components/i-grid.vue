@@ -1,4 +1,7 @@
 <template>
+<div class="i-echarts-options">
+    <slot></slot>
+</div>
 </template>
 
 <script>
@@ -89,6 +92,3 @@ export default {
 }
 </script>
 
-<style>
-
-</style>

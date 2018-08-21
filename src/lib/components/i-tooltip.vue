@@ -62,11 +62,10 @@ export default {
             default : 0.4,
         },
         position : {
-            type : Object,
-            default : () => undefined,
+            default : undefined,
         },
         formatter : {
-            default : () => undefined,
+            default : undefined,
         },
         backgroundColor : {
             type : String,
@@ -95,7 +94,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>
