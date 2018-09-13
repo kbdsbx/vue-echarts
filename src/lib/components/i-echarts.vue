@@ -1,5 +1,5 @@
 <template>
-    <div class="i-echarts-container">
+    <div class="i-echarts-container" :style="`width: ${width}; height : ${height};`">
         <slot></slot>
     </div>
 </template>
@@ -15,6 +15,14 @@ export default {
     mixins: [comMixin],
 
     props : {
+        width : {
+            type : String,
+            default : "100%",
+        },
+        height : {
+            type : String,
+            default : "100%",
+        },
         color : {
             type : Array,
             default: () => undefined,
@@ -98,7 +106,6 @@ export default {
             this.options = {};
             this.params = this.getParams();
             this.updateOptions( this.params, {} );
-            console.log( this.options );
             this.$echarts.setOption( this.options );
         },
 
@@ -154,8 +161,6 @@ export default {
 <style>
 .i-echarts-container {
     position: relative;
-    width: 100%;
-    height: 100%;
 }
 .i-echarts-options {
     display: none;
