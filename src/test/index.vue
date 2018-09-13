@@ -4,7 +4,7 @@
     <button v-on:click="rename">Rename</button>
     <div id="demo-1" class="demo">
         <i-echarts
-            :color="['rgba(116,180,255,0.4)', '#fff', '#95c166', '#ffc35f']"
+            :color="['#9A402B', '#4686D3']"
         >
             <i-grid
                 :bottom="`2%`"
@@ -15,62 +15,14 @@
             >
             </i-grid>
             <i-legend
-                :data="['日出账收入', '月环比']"
+                :data="[{ name :'日出账收入' }, { name : '月环比' }]"
                 :textStyle="{ color: '#fff' }"
             >
             </i-legend>
-            <i-bar
-                :data="[434, -50.88, 286.85, 228.87, 205.24, 152.02, 482.67, 185.62, 439.45, 82.24, 52.96, 95.34, 133.36]"
-                :barWidth="`14px`"
-                :itemStyle="{ normal : { color : 'rgba(116,180,255,0.4)' } }"
-                :markPoint="{
-                    symbol:'circle',
-                    symbolSize:7,
-                    symbolOffset: [0, '100%'],
-                    label:{show:false},
-                    data: [
-                        {
-                            coord:[6, -56],
-                            itemStyle:{
-                                color: '#95c166'
-                            }
-                        },{
-                            coord:[8, -56],
-                            itemStyle:{
-                                color: '#95c166'
-                            }
-                        },{
-                            coord:[0, -56],
-                            itemStyle:{
-                                color: '#95c166'
-                            }
-                        },{
-                            coord:[9, -56],
-                            itemStyle:{
-                                color: '#ffc35f'
-                            }
-                        },{
-                            coord:[10, -56],
-                            itemStyle:{
-                                color: '#ffc35f'
-                            }
-                        },{
-                            coord:[1, -56],
-                            itemStyle:{
-                                color: '#ffc35f'
-                            }
-                        }
-                    ]
-                }"
-                :name="`日出账收入`"
-                :yAxisIndex="0"
-            >
-            </i-bar>
             <i-line
-                :name="`月环比`"
-                :data="[-5.41, 1.01, 1.69, -4.49, -3.75, -0.55, -6.47, -1.66, -6.26, -3.56, -3.14, -4.45, -4.76]"
+                :name="`日出账收入`"
+                :data="[434, -50.88, 286.85, 228.87, 205.24, 152.02, 482.67, 185.62, 439.45, 82.24, 52.96, 95.34, 133.36]"
                 :itemStyle="{ borderColor : '#fff', borderWidth : '1', color : params => ['#ffc35f', '#95c166', '#95c166', '#fff', '#fff', '#95c166', '#ffc35f', '#fff', '#ffc35f', '#fff', '#fff', '#fff', '#fff'][params.dataIndex] }"
-                :lineStyle="{ normal : { color : '#fff' } }"
                 :markLine="{
                     silent:true,
                     symbolSize:0,
@@ -79,6 +31,42 @@
                     },
                     lineStyle:{
                         color:'#fff'
+                    },
+                    data: [ {
+                        yAxis: 0,
+                    } ]
+                }"
+                :lineStyle="{ normal : { color : '#9A402B' } }"
+                :symbol="`circle`"
+                :symbolSize="7"
+                :yAxisIndex="0"
+                :areaStyle="{
+                    origin : 'end',
+                    normal : {
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: '#AA4133'},
+                                {offset: 1, color: 'rgba( 170, 65, 51, 0 )'}
+                            ]
+                        )
+                    }
+                }"
+            >
+            </i-line>
+            <i-line
+                :name="`月环比`"
+                :data="[-5.41, 1.01, 1.69, -4.49, -3.75, -0.55, -6.47, -1.66, -6.26, -3.56, -3.14, -4.45, -4.76]"
+                :itemStyle="{ borderColor : '#fff', borderWidth : '1', color : params => ['#ffc35f', '#95c166', '#95c166', '#fff', '#fff', '#95c166', '#ffc35f', '#fff', '#ffc35f', '#fff', '#fff', '#fff', '#fff'][params.dataIndex] }"
+                :lineStyle="{ normal : { color : '#4686D3' } }"
+                :markLine="{
+                    silent:true,
+                    symbolSize:0,
+                    label:{
+                        show:false
+                    },
+                    lineStyle:{
+                        color:'#4686D3'
                     },
                     data: [ {
                         yAxis: -3.215384615384615
@@ -245,9 +233,11 @@
 </template>
 
 <script>
+import echarts from 'echarts'
 export default {
     data () {
         return {
+            echarts,
             stack_name : "宽带",
             stack_width : "16px",
         }
@@ -272,8 +262,8 @@ export default {
 
 .demo {
     background-color: #0c1a2b;
-    width: 460px;
-    height: 280px;
+    width: 490px;
+    height: 300px;
     margin-bottom: 15px;
 }
 

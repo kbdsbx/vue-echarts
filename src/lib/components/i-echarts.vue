@@ -102,6 +102,12 @@ export default {
 
         // 递归遍历节点参数创建图表参数
         updateOptions ( params, parent ) {
+            if ( [
+                'i-echarts'
+            ].indexOf( params.tag ) !== -1 ) {
+                this.options = { ...this.params, ...this.options };
+            }
+
             if( [
                 'i-bar',
                 'i-line',
