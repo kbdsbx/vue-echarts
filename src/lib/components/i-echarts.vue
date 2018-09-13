@@ -81,7 +81,9 @@ export default {
     },
 
     mounted () {
-        this.createEcharts();
+        this.$nextTick( () => {
+            this.createEcharts();
+        } );
     },
 
     methods : {

@@ -12,7 +12,7 @@ npm install vue-charts-i --save
 
 ```js
 import Vue from 'vue'
-import VueEchart from "vue-echart-2"
+import VueEchart from "vue-echart-i"
 
 Vue.use( VueEchart );
 ```
