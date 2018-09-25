@@ -19,7 +19,7 @@ Vue.use( VueEchart );
 
 ```html
 <i-echarts>
-    <i-bar :data="data" :name="name"></i-bar>
+    <i-bar :data="data" :name="name" @click="eventHandle"></i-bar>
     <i-x-axis :data="xAxis"></i-x-axis>
     <i-y-axis></i-y-axis>
 </i-echarts>
@@ -48,3 +48,13 @@ Vue.use( VueEchart );
     <i-legend></i-legend>
 </i-echarts>
 ```
+
+## Versions
+
+#### v0.1.3
+
+- 修复部分功能失效的BUG
+
+#### v0.2.0
+
+- 添加line和bar的事件绑定，允许使用vue原生语法`@click="<func>"`和`v-on:click="<func>"`将鼠标事件绑定至指定组件，可以使用的事件包含：click、dblclick、mousedown、mousemove、mouseup、mouseover、mouseout

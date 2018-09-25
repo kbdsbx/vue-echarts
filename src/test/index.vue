@@ -12,6 +12,8 @@
                 :left="0"
                 :right="0"
                 :top="`80px`"
+
+                @click="clickHandle"
             >
             </i-grid>
             <i-legend
@@ -19,6 +21,7 @@
                 :textStyle="{ color: '#fff' }"
             >
             </i-legend>
+            <div class="">
             <i-line
                 :name="`日出账收入`"
                 :data="[434, -50.88, 286.85, 228.87, 205.24, 152.02, 482.67, 185.62, 439.45, 82.24, 52.96, 95.34, 133.36]"
@@ -52,8 +55,12 @@
                         )
                     }
                 }"
+
+                @click="clickHandle"
             >
             </i-line>
+            </div>
+            <div class="">
             <i-line
                 :name="`月环比`"
                 :data="[-5.41, 1.01, 1.69, -4.49, -3.75, -0.55, -6.47, -1.66, -6.26, -3.56, -3.14, -4.45, -4.76]"
@@ -75,8 +82,11 @@
                 :symbol="`circle`"
                 :symbolSize="7"
                 :yAxisIndex="1"
+
+                @click="clickHandle"
             >
             </i-line>
+            </div>
             <i-tooltip
                 :axisPointer="{ type : 'shadow' }"
                 :trigger="'axis'"
@@ -138,6 +148,8 @@
                 :itemStyle="{ normal : { color : 'rgba(116,180,255,0.4)' } }"
                 :barWidth="`10px`"
                 :name="`宽带日受理`"
+
+                @click="clickHandle"
             >
             </i-bar>
             <i-bar
@@ -145,6 +157,8 @@
                 :itemStyle="{ normal : { color : '#FFF' } }"
                 :barWidth="`10px`"
                 :name="`宽带日竣工`"
+
+                @click="clickHandle"
             >
             </i-bar>
             <i-tooltip
@@ -234,6 +248,7 @@
 
 <script>
 import echarts from 'echarts'
+import serialize from 'serialize-javascript'
 export default {
     data () {
         return {
@@ -250,6 +265,9 @@ export default {
         rename () {
             this.stack_name = ( this.stack_name == "宽带" ? "非宽带" : "宽带" );
             this.stack_width = ( this.stack_name == "宽带" ? "16px" : "10px" );
+        },
+        clickHandle(n, s ) {
+            window.alert( `${n.seriesName}-${n.name}-${n.value}` );
         }
     }
 }

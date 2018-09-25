@@ -26,7 +26,7 @@ export default {
 
         // 获取所有子节点参数
         getParams () {
-            var options = { ...this.$props, tag : this.$options.name, children : [] };
+            var options = { ...this.$props, tag : this.$options.name, children : [], listeners : this.$listeners };
 
             this.$children.forEach( ch => {
                 if ( ch.componentType == 'tooltip' ) {

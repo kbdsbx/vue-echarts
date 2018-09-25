@@ -85,6 +85,17 @@ export default {
         return {
             options : {},
             params : {},
+            events : [],
+
+            const_events_name : [
+                'click',
+                'dblclick',
+                'mousedown',
+                'mousemove',
+                'mouseup',
+                'mouseover',
+                'mouseout',
+            ],
         };
     },
 
@@ -98,12 +109,28 @@ export default {
         createEcharts () {
             if ( ! this.$echarts ) {
                 this.$echarts = echarts.init( this.$el )
+                for ( let et of this.const_events_name ) {
+                    this.$echarts.on( et, this.eventHandle );
+                }
             }
             this.updateParams();
         },
 
+        eventHandle ( event ) {
+            let eventObj = this.events.find( x => {
+                return x.type == event.type &&
+                    x.componentType == event.componentType &&
+                    x.componentSubType == event.componentSubType &&
+                    x.seriesName == event.seriesName;
+            } );
+            if ( eventObj ) {
+                eventObj.handle.call( this, event );
+            }
+        },
+
         updateParams () {
             this.options = {};
+            this.events = [];
             this.params = this.getParams();
             this.updateOptions( this.params, {} );
             this.$echarts.setOption( this.options );
@@ -121,8 +148,11 @@ export default {
                 'i-bar',
                 'i-line',
             ].indexOf( params.tag ) !== -1 ) {
+                var tag = params.tag.replace( /^i-/, '' );
                 this.options.series = this.options.series || [];
                 this.options.series.push( { ...params } );
+                params.componentType = 'series';
+                params.componentSubType = tag;
             }
 
             if ( [
@@ -147,6 +177,19 @@ export default {
                 } else {
                     var tag = params.tag.replace( /^i-/, '' );
                     this.options[ tag ] = params;
+                }
+            }
+
+            for ( let ls in params.listeners ) {
+                let handle = params.listeners[ls];
+                if ( this.const_events_name.indexOf( ls ) != -1 ) {
+                    this.events.push( {
+                        type : ls,
+                        componentType : params.componentType,
+                        componentSubType : params.componentSubType,
+                        seriesName : params.name,
+                        handle,
+                    } );
                 }
             }
 
