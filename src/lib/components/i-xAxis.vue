@@ -1,4 +1,6 @@
 <template>
+<div class="i-echarts-options">
+</div>
 </template>
 
 <script>

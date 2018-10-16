@@ -1,5 +1,6 @@
 <template>
     <div class="i-echarts-container" :style="`width: ${width}; height : ${height};`">
+        <div id="i-echarts-canvas"></div>
         <slot></slot>
     </div>
 </template>
@@ -105,10 +106,14 @@ export default {
         } );
     },
 
+    updated () {
+        this.updateParams();
+    },
+
     methods : {
         createEcharts () {
             if ( ! this.$echarts ) {
-                this.$echarts = echarts.init( this.$el )
+                this.$echarts = echarts.init( this.$el.querySelector( '#i-echarts-canvas' ) )
                 for ( let et of this.const_events_name ) {
                     this.$echarts.on( et, this.eventHandle );
                 }
@@ -207,5 +212,9 @@ export default {
 }
 .i-echarts-options {
     display: none;
+}
+#i-echarts-canvas {
+    width: 100%;
+    height: 100%;
 }
 </style>

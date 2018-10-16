@@ -2,6 +2,7 @@ import iEcharts from './components/i-echarts.vue'
 
 import iBar from './components/series/i-bar.vue'
 import iLine from './components/series/i-line.vue'
+import iSeries from './components/series/i-series.vue'
 import ixAxis from './components/i-xAxis.vue'
 import iyAxis from './components/i-yAxis.vue'
 import iGrid from './components/i-grid.vue'
@@ -11,6 +12,7 @@ import iLegend from './components/i-legend.vue'
 let components = [
     iEcharts,
     iBar,
+    iSeries,
     iLine,
     ixAxis,
     iyAxis,

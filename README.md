@@ -58,3 +58,12 @@ Vue.use( VueEchart );
 #### v0.2.0
 
 - 添加line和bar的事件绑定，允许使用vue原生语法`@click="<func>"`和`v-on:click="<func>"`将鼠标事件绑定至指定组件，可以使用的事件包含：click、dblclick、mousedown、mousemove、mouseup、mouseover、mouseout
+
+#### v0.2.1
+
+- 新增i-series标签用于v-for循环，例：`<i-series v-for="k in array"></i-series>`
+
+#### v0.2.2
+
+- 修复echarts创建canvas时删除vue components占用用节点使得数据更新时插入节点失败导致系统宕机的错误
+- 修复i-series标签prop不存在导致的报错

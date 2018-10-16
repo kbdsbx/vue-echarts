@@ -2,6 +2,7 @@
 <div class="chart-area">
     <button v-on:click="random">Random</button>
     <button v-on:click="rename">Rename</button>
+    <button v-on:click="clickThen">Click</button>
     <div id="demo-1" class="demo">
         <i-echarts
             :color="['#9A402B', '#4686D3']"
@@ -21,7 +22,6 @@
                 :textStyle="{ color: '#fff' }"
             >
             </i-legend>
-            <div class="">
             <i-line
                 :name="`日出账收入`"
                 :data="[434, -50.88, 286.85, 228.87, 205.24, 152.02, 482.67, 185.62, 439.45, 82.24, 52.96, 95.34, 133.36]"
@@ -59,34 +59,36 @@
                 @click="clickHandle"
             >
             </i-line>
-            </div>
-            <div class="">
-            <i-line
-                :name="`月环比`"
-                :data="[-5.41, 1.01, 1.69, -4.49, -3.75, -0.55, -6.47, -1.66, -6.26, -3.56, -3.14, -4.45, -4.76]"
-                :itemStyle="{ borderColor : '#fff', borderWidth : '1', color : params => ['#ffc35f', '#95c166', '#95c166', '#fff', '#fff', '#95c166', '#ffc35f', '#fff', '#ffc35f', '#fff', '#fff', '#fff', '#fff'][params.dataIndex] }"
-                :lineStyle="{ normal : { color : '#4686D3' } }"
-                :markLine="{
-                    silent:true,
-                    symbolSize:0,
-                    label:{
-                        show:false
-                    },
-                    lineStyle:{
-                        color:'#4686D3'
-                    },
-                    data: [ {
-                        yAxis: -3.215384615384615
-                    } ]
-                }"
-                :symbol="`circle`"
-                :symbolSize="7"
-                :yAxisIndex="1"
 
-                @click="clickHandle"
-            >
-            </i-line>
-            </div>
+            <i-series v-for="( k, i ) in test_arr" :key="i">
+                <i-line
+                    :id="`line` + i"
+                    :name="`月环比`"
+                    :data="[-5.41 * k, 1.01 * k, 1.69 * k, -4.49 * k, -3.75 * k, -0.55 * k, -6.47 * k, -1.66 * k, -6.26 * k, -3.56 * k, -3.14 * k, -4.45 * k, -4.76 * k]"
+                    :itemStyle="{ borderColor : '#fff', borderWidth : '1', color : params => ['#ffc35f', '#95c166', '#95c166', '#fff', '#fff', '#95c166', '#ffc35f', '#fff', '#ffc35f', '#fff', '#fff', '#fff', '#fff'][params.dataIndex] }"
+                    :lineStyle="{ normal : { color : '#4686D3' } }"
+                    :markLine="{
+                        silent:true,
+                        symbolSize:0,
+                        label:{
+                            show:false
+                        },
+                        lineStyle:{
+                            color:'#4686D3'
+                        },
+                        data: [ {
+                            yAxis: -3.215384615384615
+                        } ]
+                    }"
+                    :symbol="`circle`"
+                    :symbolSize="7"
+                    :yAxisIndex="1"
+
+                    @click="clickHandle"
+                >
+                </i-line>
+            </i-series>
+
             <i-tooltip
                 :axisPointer="{ type : 'shadow' }"
                 :trigger="'axis'"
@@ -255,6 +257,8 @@ export default {
             echarts,
             stack_name : "宽带",
             stack_width : "16px",
+
+            test_arr : [ 1.1, 1.2, 1.3 ],
         }
     },
     components : {
@@ -268,6 +272,9 @@ export default {
         },
         clickHandle(n, s ) {
             window.alert( `${n.seriesName}-${n.name}-${n.value}` );
+        },
+        clickThen () {
+            this.test_arr = [ 1.1 ];
         }
     }
 }
