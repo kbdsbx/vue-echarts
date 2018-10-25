@@ -8,16 +8,17 @@
 import cmpMixin from '../../mixins/component-mixin.js'
 import serMixin from '../../mixins/series-mixin.js'
 
-const TYPE = 'line';
+const TYPE = 'radars';
 
 export default {
     name : 'i-' + TYPE,
 
     mixins : [cmpMixin, serMixin],
 
+
     data () {
         return {
-            type : TYPE,
+            type : 'radar',
         }
     },
 
@@ -30,19 +31,7 @@ export default {
             type : String,
             default : undefined,
         },
-        coordinateSystem : {
-            type : String,
-            default : 'cartesian2d',
-        },
-        xAxisIndex : {
-            type : Number,
-            default : 0,
-        },
-        yAxisIndex : {
-            type : Number,
-            default : 0,
-        },
-        polarIndex : {
+        radarIndex : {
             type : Number,
             default : 0,
         },
@@ -66,36 +55,6 @@ export default {
             type : Array,
             default : () => [0,0]
         },
-        showAllSymbol : {
-            default : () => 'auto' 
-        },
-        hoverAnimation : {
-            type : Boolean,
-            default : true,
-        },
-        legendHoverLink : {
-            type : Boolean,
-            default : true,
-        },
-        stack : {
-            type : String,
-            default : null,
-        },
-        cursor : {
-            type : String,
-            default : 'pointer',
-        },
-        connectNulls : {
-            type : Boolean,
-            default : false,
-        },
-        clipOverflow : {
-            type : Boolean,
-            default : true,
-        },
-        step : {
-            default : () => false,
-        },
         label : {
             type : Object,
             default : () => undefined
@@ -116,48 +75,9 @@ export default {
             type : Object,
             default : () => undefined,
         },
-        smooth : {
-            default : () => false,
-        },
-        smoothMonotone : {
-            type : String,
-            default : undefined,
-        },
-        sampling : {
-            type : String,
-            default : undefined,
-        },
-        dimensions : {
-            type : Array,
-            default : () => undefined,
-        },
-        encode : {
-            type : Object,
-            default : () => undefined,
-        },
-        seriesLayoutBy : {
-            type : String,
-            default : 'column',
-        },
-        datasetIndex : {
-            type : Number,
-            default : 0,
-        },
         data : {
             type : Array,
             default : () => [],
-        },
-        markPoint : {
-            type : Object,
-            default : () => undefined,
-        },
-        markLine : {
-            type : Object,
-            default : () => undefined,
-        },
-        markArea : {
-            type : Object,
-            default : () => undefined,
         },
         zlevel : {
             type : Number,
@@ -204,6 +124,10 @@ export default {
             type : Object,
             default : () => undefined,
         }
-    },
+    }
 }
 </script>
+
+<style>
+
+</style>

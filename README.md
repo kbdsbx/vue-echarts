@@ -38,6 +38,10 @@ Vue.use( VueEchart );
     <i-line>
         <i-tooltip></i-tooltip>
     </i-line>
+    <i-series v-for="radar in arr">
+        <i-radars>
+        </i-radars>
+    </i-series>
     <i-grid>
         <i-tooltip></i-tooltip>
     </i-grid>
@@ -46,6 +50,7 @@ Vue.use( VueEchart );
     <i-x-axis></i-x-axis>
     <i-y-axis></i-y-axis>
     <i-legend></i-legend>
+    <i-radar></i-radar>
 </i-echarts>
 ```
 
@@ -67,3 +72,7 @@ Vue.use( VueEchart );
 
 - 修复echarts创建canvas时删除vue components占用用节点使得数据更新时插入节点失败导致系统宕机的错误
 - 修复i-series标签prop不存在导致的报错
+
+#### v0.3.0
+
+- 添加radar雷达图表，添加radars雷达图数据描述

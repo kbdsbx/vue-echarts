@@ -3,6 +3,157 @@
     <button v-on:click="random">Random</button>
     <button v-on:click="rename">Rename</button>
     <button v-on:click="clickThen">Click</button>
+    <div id="demo-4" class="demo">
+        <i-echarts
+            :color="['#9A402B', '#4686D3']"
+        >
+            <i-legend
+                :show="true"
+                :icon="`rect`"
+                :right="5"
+                :data="[
+                    {
+                        name : '今天',
+                        icon: 'rect',
+                        textStyle: {
+                            color: '#FF4A4A',
+                        }
+                    },
+                    {
+                        name : '昨天',
+                        icon: 'rect',
+                        textStyle: {
+                            color: '#FF4A4A',
+                        }
+                    }
+                ]"
+            >
+            </i-legend>
+            <i-radar
+                :shape="`circle`"
+                :splitNumber="4"
+                :name="{ textStyle : { color: '#5E5E5E' } }"
+                :splitArea="{ show : true }"
+                :splitLine="{ lineStyle: { color: '#EFEFEF', width: 1 } }"
+                :axisLine="{ lineStyle : { color: '#EFEFEF', width: 1 } }"
+                :indicator="[
+                    {
+                        name : '日通份额\n基本提升比',
+                        max : '14',
+                        color: '#D81F10',
+                    },
+                    {
+                        name : '日通份额\n基本提升比',
+                        max : '14',
+                        color: '#5E5E5E',
+                    },
+                    {
+                        name : '日通份额\n基本提升比',
+                        max : '14',
+                    },
+                    {
+                        name : '日通份额\n基本提升比',
+                        max : '14',
+                    },
+                    {
+                        name : '日通份额\n基本提升比',
+                        max : '14',
+                    },
+                    {
+                        name : '日通份额\n基本提升比',
+                        max : '14',
+                    },
+                    {
+                        name : '日通份额\n基本提升比',
+                        max : '14',
+                    },
+                    {
+                        name : '日通份额\n基本提升比',
+                        max : '14',
+                    },
+                ]"
+            >
+            </i-radar>
+            <i-radars
+                :id="`key1`"
+                :name="`昨天`"
+                :lineStyle="{
+                    normal: {
+                        width: 1,
+                        opacity: .5
+                    }
+                }"
+                :data="[[ 13, 2, 3, 2, 5, 4, 7, 8 ]]"
+                :symbol="`circle`"
+                :symbolSize="2"
+                :label="{
+                    normal : {
+                        show : true,
+                        distance: 5,
+                        color: '#BD10E0',
+                        position: 'top',
+                        fontSize: 14,
+                        formatter: function( p ) {
+                            return p.value;
+                        }
+                    }
+                }"
+                :itemStyle="{
+                    normal: {
+                        borderColor : '#BD10E0',
+                        color : '#BD10E0',
+                        borderWidth : 3,
+                    }
+                }"
+                :areaStyle="{
+                    normal : {
+                        color: '#BD10E0',
+                        opacity: .5,
+                    }
+                }"
+            >
+            </i-radars>
+            <i-radars
+                :id="`key2`"
+                :name="`今天`"
+                :lineStyle="{
+                    normal: {
+                        width: 1,
+                        opacity: .5
+                    }
+                }"
+                :data="[[ 8, 7, 6, 14, 4, 10, 2, 1 ]]"
+                :symbol="`circle`"
+                :symbolSize="2"
+                :label="{
+                    normal : {
+                        show : true,
+                        distance: 5,
+                        color: '#4A90E2',
+                        position: 'top',
+                        fontSize: 14,
+                        formatter: function( p ) {
+                            return p.value;
+                        }
+                    }
+                }"
+                :itemStyle="{
+                    normal: {
+                        borderColor : '#4A90E2',
+                        color: '#4A90E2',
+                        borderWidth : 3,
+                    }
+                }"
+                :areaStyle="{
+                    normal : {
+                        color: '#4A90E2',
+                        opacity: .5,
+                    }
+                }"
+            >
+            </i-radars>
+        </i-echarts>
+    </div>
     <div id="demo-1" class="demo">
         <i-echarts
             :color="['#9A402B', '#4686D3']"
@@ -290,6 +441,10 @@ export default {
     width: 490px;
     height: 300px;
     margin-bottom: 15px;
+}
+
+#demo-4 {
+    background-color: white;
 }
 
 </style>

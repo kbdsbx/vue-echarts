@@ -152,8 +152,12 @@ export default {
             if( [
                 'i-bar',
                 'i-line',
+                'i-radars',
             ].indexOf( params.tag ) !== -1 ) {
                 var tag = params.tag.replace( /^i-/, '' );
+                if ( tag == 'radars' ) {
+                    tag = 'radar';
+                }
                 this.options.series = this.options.series || [];
                 this.options.series.push( { ...params } );
                 params.componentType = 'series';
@@ -173,6 +177,7 @@ export default {
                 'i-tooltip',
                 'i-grid',
                 'i-legend',
+                'i-radar',
             ].indexOf( params.tag ) !== -1 ) {
                 // 如果非根选项包含tooltip，对tooltip设置空对象
                 if ( params.tag == 'i-tooltip' && parent.tag != 'i-echarts' ) {
