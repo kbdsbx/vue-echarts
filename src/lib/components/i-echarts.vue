@@ -8,6 +8,7 @@
 <script>
 import echarts from 'echarts'
 import comMixin from '../mixins/component-mixin.js'
+import serialize from 'serialize-javascript'
 
 const TAG_NAME = 'i-echarts';
 
@@ -107,7 +108,13 @@ export default {
     },
 
     updated () {
+        let old_params = serialize( this.options );
         this.updateParams();
+        let new_params = serialize( this.options );
+        if ( old_params != new_params ) {
+            this.$echarts.clear();
+            this.updateParams();
+        }
     },
 
     methods : {
