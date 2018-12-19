@@ -3,6 +3,7 @@ import iEcharts from './components/i-echarts.vue'
 import iBar from './components/series/i-bar.vue'
 import iLine from './components/series/i-line.vue'
 import iRadars from './components/series/i-radars.vue'
+import iPie from './components/series/i-pie.vue'
 import iSeries from './components/series/i-series.vue'
 import ixAxis from './components/i-xAxis.vue'
 import iyAxis from './components/i-yAxis.vue'
@@ -15,7 +16,9 @@ let components = [
     iEcharts,
     iBar,
     iRadars,
+    iPie,
     iSeries,
+
     iLine,
     ixAxis,
     iyAxis,

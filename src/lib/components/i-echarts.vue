@@ -108,9 +108,8 @@ export default {
     },
 
     updated () {
-        let old_params = serialize( this.options );
-        this.updateParams();
-        let new_params = serialize( this.options );
+        let old_params = serialize( this.params );
+        let new_params = serialize( this.getParams() );
         if ( old_params != new_params ) {
             this.$echarts.clear();
             this.updateParams();
@@ -160,6 +159,7 @@ export default {
                 'i-bar',
                 'i-line',
                 'i-radars',
+                'i-pie',
             ].indexOf( params.tag ) !== -1 ) {
                 var tag = params.tag.replace( /^i-/, '' );
                 if ( tag == 'radars' ) {

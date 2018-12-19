@@ -3,7 +3,40 @@
     <button v-on:click="random">Random</button>
     <button v-on:click="rename">Rename</button>
     <button v-on:click="clickThen">Click</button>
-    <div id="demo-4" class="demo">
+    <div id="demo-5" class="demo white">
+        <i-echarts
+            :color="['#4A90E2', '#E24A67']"
+        >
+            <i-legend
+            :trigger="`item`"
+            :formatter="`{a} <br/> {b} : {c} ({d}%)`"
+            >
+            </i-legend>
+            <i-pie
+            :name="`访问来源`"
+            :data="[
+                {
+                    name : '男',
+                    value : 54.5
+                },
+                {
+                    name : '女',
+                    value : 44.5
+                }
+            ]"
+            :label="{
+                formatter : '{b}\n{c}%',
+            }"
+            :labelLine="{
+                length: 15,
+                length2: 10
+            }"
+            :radius="[ '30%', '50%' ]"
+            >
+            </i-pie>
+        </i-echarts>
+    </div>
+    <div id="demo-4" class="demo white">
         <i-echarts
             :color="['#9A402B', '#4686D3']"
         >
@@ -441,9 +474,9 @@ export default {
     width: 490px;
     height: 300px;
     margin-bottom: 15px;
-}
 
-#demo-4 {
+}
+.demo.white {
     background-color: white;
 }
 

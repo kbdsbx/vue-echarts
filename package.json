@@ -1,6 +1,6 @@
 {
   "name": "vue-echarts-i",
-  "version": "0.3.1",
+  "version": "0.4.1",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -10,13 +10,13 @@
   "main" : "./src/lib/index.js",
   "dependencies": {
     "echarts": "^4.1.0",
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "serialize-javascript": "^1.5.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-rc.10",
     "@vue/cli-plugin-eslint": "^3.0.0-rc.10",
     "@vue/cli-service": "^3.0.0-rc.10",
-    "serialize-javascript": "^1.5.0",
     "vue-template-compiler": "^2.5.16"
   },
   "keywords": [
