@@ -285,6 +285,9 @@
                 :axisTick="{ show : false }"
                 :splitLine="{ show : false }"
                 :type="`category`"
+                :triggerEvent="true"
+
+                @click="click"
             ></i-x-axis>
             <i-y-axis
                 :type="`value`"
@@ -459,6 +462,9 @@ export default {
         },
         clickThen () {
             this.test_arr = [ 1.1 ];
+        },
+        click ( n ) {
+            window.alert( `${n.value}` );
         }
     }
 }

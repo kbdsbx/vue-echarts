@@ -167,8 +167,6 @@ export default {
                 }
                 this.options.series = this.options.series || [];
                 this.options.series.push( { ...params } );
-                params.componentType = 'series';
-                params.componentSubType = tag;
             }
 
             if ( [
