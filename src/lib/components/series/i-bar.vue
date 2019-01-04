@@ -23,11 +23,11 @@ export default {
 
     props : {
         id : {
-            type : String,
+            type : [Number, String],
             default : undefined,
         },
         name : {
-            type : String,
+            type : [Number, String],
             default : undefined,
         },
         legendHoverLink : {
@@ -59,7 +59,7 @@ export default {
             default : () => undefined,
         },
         stack : {
-            type : String,
+            type : [Number, String],
             default : null,
         },
         cursor : {
@@ -67,11 +67,12 @@ export default {
             default : 'pointer',
         },
         barWidth : {
-            default : () => undefined,
+            type : [Number, String],
+            default : undefined,
         },
         barMaxWidth : {
-            type : Object,
-            default : () => undefined,
+            type : [Number, String],
+            default : undefined,
         },
         barMinHeight : {
             type : Number,
@@ -166,11 +167,11 @@ export default {
             default : 'linear',
         },
         animationDelay : {
-            type : Number,
+            type : [Number, Function],
             default : 0,
         },
         animationDurationUpdate : {
-            type : Number,
+            type : [Number, Function],
             default : 300
         },
         animationEasingUpdate : {
@@ -178,7 +179,7 @@ export default {
             default : "cubicOut",
         },
         animationDelayUpdate : {
-            type : Number,
+            type : [Number, Function],
             default : 0
         },
         tooltip : {

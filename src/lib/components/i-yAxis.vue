@@ -20,7 +20,7 @@ export default {
 
     props : {
         id : {
-            type : String,
+            type : [Number, String],
             default : undefined,
         },
         show : {
@@ -72,9 +72,11 @@ export default {
             default : true,
         },
         min : {
+            type : [Number, String, Function],
             default : null,
         },
         max : {
+            type : [Number, String, Function],
             default : null,
         },
         scale : {

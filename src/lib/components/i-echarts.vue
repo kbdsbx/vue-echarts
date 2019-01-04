@@ -108,12 +108,8 @@ export default {
     },
 
     updated () {
-        let old_params = serialize( this.params );
-        let new_params = serialize( this.getParams() );
-        if ( old_params != new_params ) {
-            this.$echarts.clear();
-            this.updateParams();
-        }
+        this.$echarts.clear();
+        this.updateParams();
     },
 
     methods : {
@@ -172,8 +168,13 @@ export default {
             if ( [
                 'i-x-axis',
                 'i-y-axis',
+                'i-data-zoom'
             ].indexOf( params.tag ) !== -1 ) {
-                var tag = params.tag.replace( /^i-/, '' ).replace( /-a/, 'A' );
+                var tag = params.tag
+                    .replace( /^i-/, '' )
+                    .replace( /-a/, 'A' )
+                    .replace( /-z/, 'Z' );
+
                 this.options[ tag ] = this.options[ tag ] || [];
                 this.options[ tag ].push( { ...params } );
             }

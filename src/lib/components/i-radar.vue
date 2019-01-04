@@ -22,7 +22,7 @@ export default {
 
     props : {
         id : {
-            type : String,
+            type : [Number, String],
             default : "",
         },
         zlevel : {
@@ -38,13 +38,15 @@ export default {
             default : () => [ '50%', '50%' ],
         },
         radius : {
-            default : () => '75%',
+            type : [String, Number, Array],
+            default : '75%',
         },
         startAngle : {
             type : Number,
             default : 90,
         },
         name : {
+            type : Object,
             default : () => {},
         },
         nameGap : {

@@ -23,11 +23,11 @@ export default {
 
     props : {
         id : {
-            type : String,
+            type : [Number, String],
             default : undefined,
         },
         name : {
-            type : String,
+            type : [Number, String],
             default : undefined,
         },
         coordinateSystem : {
@@ -94,7 +94,8 @@ export default {
             default : true,
         },
         step : {
-            default : () => false,
+            type : [String, Boolean],
+            default : false,
         },
         label : {
             type : Object,
@@ -117,7 +118,8 @@ export default {
             default : () => undefined,
         },
         smooth : {
-            default : () => false,
+            type : [Number, Boolean],
+            default : false,
         },
         smoothMonotone : {
             type : String,
@@ -188,9 +190,11 @@ export default {
             default : 'linear',
         },
         animationDelay : {
+            type : [Number, Function],
             default : () => 0,
         },
         animationDurationUpdate : {
+            type : [Number, Function],
             default : () => 300
         },
         animationEasingUpdate : {
@@ -198,6 +202,7 @@ export default {
             default : "cubicOut",
         },
         animationDelayUpdate : {
+            type : [Number, Function],
             default : () => 0
         },
         tooltip : {

@@ -23,11 +23,11 @@ export default {
 
     props : {
         id : {
-            type : String,
+            type : [Number, String],
             default : undefined,
         },
         name : {
-            type : String,
+            type : [Number, String],
             default : undefined,
         },
         legendHoverLink : {
@@ -43,6 +43,7 @@ export default {
             default : 10,
         },
         selectedMode : {
+            type : [Boolean, String],
             default : false,
         },
         selectedOffset : {
@@ -62,6 +63,7 @@ export default {
             default : 0,
         },
         roseType : {
+            type : [Boolean, String],
             default : false,
         },
         avoidLabelOverlap : {
@@ -105,6 +107,7 @@ export default {
             default : () => [ '50%', '50%' ],
         },
         radius : {
+            type : [Number, String, Array],
             default : () => [0, '75%'],
         },
         seriesLayoutBy : {
@@ -156,9 +159,11 @@ export default {
             default : 'linear',
         },
         animationDelay : {
+            type : [Number, Function],
             default : () => 0,
         },
         animationDurationUpdate : {
+            type : [Number, Function],
             default : () => 300
         },
         animationEasingUpdate : {
@@ -166,6 +171,7 @@ export default {
             default : "cubicOut",
         },
         animationDelayUpdate : {
+            type : [Number, Function],
             default : () => 0
         },
         tooltip : {

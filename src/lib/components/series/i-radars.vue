@@ -24,11 +24,11 @@ export default {
 
     props : {
         id : {
-            type : String,
+            type : [Number, String],
             default : undefined,
         },
         name : {
-            type : String,
+            type : [Number, String],
             default : undefined,
         },
         radarIndex : {
@@ -108,9 +108,11 @@ export default {
             default : 'linear',
         },
         animationDelay : {
+            type : [Number, Function],
             default : () => 0,
         },
         animationDurationUpdate : {
+            type : [Number, Function],
             default : () => 300
         },
         animationEasingUpdate : {
@@ -118,6 +120,7 @@ export default {
             default : "cubicOut",
         },
         animationDelayUpdate : {
+            type : [Number, Function],
             default : () => 0
         },
         tooltip : {

@@ -11,6 +11,7 @@ import iGrid from './components/i-grid.vue'
 import iTooltip from './components/i-tooltip.vue'
 import iLegend from './components/i-legend.vue'
 import iRadar from './components/i-radar.vue'
+import iDataZoom from './components/i-dataZoom.vue'
 
 let components = [
     iEcharts,
@@ -18,14 +19,15 @@ let components = [
     iRadars,
     iPie,
     iSeries,
-
     iLine,
+
     ixAxis,
     iyAxis,
     iGrid,
     iTooltip,
     iLegend,
     iRadar,
+    iDataZoom,
 ];
 
 let VueEcharts = {

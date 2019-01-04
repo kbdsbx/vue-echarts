@@ -37,32 +37,40 @@ export default {
             default : 2,
         },
         left : {
-            default : () => '10%',
+            type : [String, Number],
+            default : '10%',
         },
         top : {
-            default : () => 60,
+            type : [String, Number],
+            default : 60,
         },
         right : {
-            default : () => '10%',
+            type : [String, Number],
+            default : '10%',
         },
         bottom : {
-            default : () => 60,
+            type : [String, Number],
+            default : 60,
         },
         width : {
-            default : () => 'auto',
+            type : [String, Number],
+            default : 'auto',
         },
         height : {
-            default : () => 'auto',
+            type : [String, Number],
+            default : 'auto',
         },
         containLabel : {
             type : Boolean,
             default : false,
         },
         backgroundColor : {
-            default : () => "transparent",
+            type : String,
+            default : "transparent",
         },
         borderColor : {
-            default : () => "#ccc",
+            type : String,
+            default : "#ccc",
         },
         borderWidth : {
             type : Number,

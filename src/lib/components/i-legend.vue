@@ -25,7 +25,7 @@ export default {
             default : "",
         },
         id : {
-            type : String,
+            type : [Number, String],
             default : "",
         },
         show : {
@@ -41,21 +41,27 @@ export default {
             default : 0,
         },
         left : {
+            type : [String, Number],
             default : "auto",
         },
         top : {
+            type : [String, Number],
             default : "auto",
         },
         right : {
+            type : [String, Number],
             default : "auto",
         },
         bottom: {
+            type : [String, Number],
             default : "auto",
         },
         width : {
+            type : [String, Number],
             default : "auto",
         },
         height : {
+            type : [String, Number],
             default : "auto",
         },
         orient : {
@@ -67,6 +73,7 @@ export default {
             default : "auto",
         },
         padding : {
+            type : [Number, Array],
             default : 5
         },
         itemGap : {
@@ -86,9 +93,11 @@ export default {
             default : true,
         },
         formatter : {
+            type : [String, Function],
             default : null,
         },
         selectedMode : {
+            type : [String, Boolean],
             default : true,
         },
         inactiveColor : {
@@ -124,6 +133,7 @@ export default {
             default : 0,
         },
         borderRadius : {
+            type : [Number, Array],
             default : 0,
         },
         shadowBlur : {
@@ -159,6 +169,7 @@ export default {
             default : "end",
         },
         pageFormatter : {
+            type : [String, Function],
             default : "{current}/{total}",
         },
         pageIcons : {

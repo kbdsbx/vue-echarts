@@ -64,9 +64,11 @@ export default {
             default : 0.4,
         },
         position : {
+            type : [String, Array, Function],
             default : undefined,
         },
         formatter : {
+            type : [String, Function],
             default : undefined,
         },
         backgroundColor : {
